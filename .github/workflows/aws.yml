@@ -1,8 +1,8 @@
-name: Deploy to Amazon ECS
-on:
-  push:
-    branches:
-      - main
+#name: Deploy to Amazon ECS
+#on:
+#  push:
+#    branches:
+#      - main
 env:
   AWS_REGION: us-west-1
   ECS_CLUSTER: app_cluster
