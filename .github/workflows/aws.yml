@@ -4,7 +4,7 @@ on:
     branches:
       - main
 env:
-  AWS_REGION: ap-south-1
+  AWS_REGION: us-west-1
   ECS_CLUSTER: app_cluster
   CONTAINER_NAME: app
   ECS_SERVICE: app_service
