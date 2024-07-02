@@ -3,7 +3,7 @@ name: Terraform deploy ecs cluster in us-west-1
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch, adjust as needed
+      - master  # Trigger on push to the main branch, adjust as needed
 
 jobs:
   terraform:
