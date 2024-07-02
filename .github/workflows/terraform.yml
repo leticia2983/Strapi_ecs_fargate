@@ -27,14 +27,14 @@ jobs:
       #          echo "AWS_REGION=${{ secrets.AWS_REGION }}" >> $GITHUB_ENV
 
       - name: Initialize Terraform
-        working-directory: terraform
+        working-directory: ./terraform
         run: terraform init
 
       - name: Plan Terraform
-        working-directory: terraform
+        working-directory: ./terraform
         run: terraform plan
 
       - name: Apply Terraform
         if: github.ref == 'refs/heads/main'
-        working-directory: terraform
+        working-directory: ./terraform
         run: terraform apply -auto-approve
