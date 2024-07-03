@@ -9,5 +9,9 @@ terraform {
 
 provider "aws" {
   region = var.region
-}
+   assume_role {
+      role_arn = "arn:aws:ecs:us-west-1:533266978173:task-definition/let-task:1"
+    }
+  }
+
 
