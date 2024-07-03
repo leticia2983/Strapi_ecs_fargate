@@ -9,11 +9,13 @@ resource "aws_ecs_task_definition" "strapi" {
   requires_compatibilities = ["FARGATE"]
   cpu                      = "1024"
   memory                   = "2048"
+  task_role_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+  execution_role_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 
   container_definitions = jsonencode([
     {
       name      = "strapi-db"
-      image     = "arunrascall/strapi-postgres:development"
+      image     = "strapi:latest"
       essential = true
       environment = [
         {
