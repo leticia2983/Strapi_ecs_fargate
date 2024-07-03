@@ -9,4 +9,6 @@
 
 provider "aws" {
   region = var.region
-}
+  assume_role {
+  arn:aws:iam::533266978173:role/ecs_task_strapi
+}}
