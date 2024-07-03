@@ -93,3 +93,4 @@ resource "aws_ecs_service" "strapi_service" {
     assign_public_ip = true
   }
 
+}
