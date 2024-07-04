@@ -1,9 +1,9 @@
 resource "aws_ecs_cluster" "ecs" {
-  name = "app_cluster"
+  name = var.cluster_name
 }
 
 resource "aws_ecs_service" "service" {
-  name                    = "app_service"
+  name                    = var.service_name
   cluster                 = aws_ecs_cluster.ecs.arn
   launch_type             = "FARGATE"
   enable_execute_command  = true
@@ -21,7 +21,7 @@ resource "aws_ecs_service" "service" {
 }
 
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name = "ecsTaskExecutionRoleStrapi-let"
+  name = var.ecs_task_execution_role
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -43,7 +43,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
 }
 
 resource "aws_ecs_task_definition" "td" {
-  family               = "strapi-task"
+  family               = var.aws_ecs_task_definition
   cpu                  = "256"
   memory               = "512"
   network_mode         = "awsvpc"
@@ -121,7 +121,7 @@ resource "aws_ecs_task_definition" "td" {
 }
 
 resource "aws_ecs_service" "strapi_service" {
-  name            = "strapi-service"
+  name            = var.strapi_service
   cluster         = aws_ecs_cluster.ecs.id
   task_definition = aws_ecs_task_definition.td.arn
   desired_count   = 1

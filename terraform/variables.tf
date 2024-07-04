@@ -1,6 +1,23 @@
-
-variable "region" {
-  default = "us-west-1"
+variable "cluster_name" {
+  default = "leticia_app_cluster"
 }
 
+variable "service_name" {
+  default = "leticia_app_service"
+}
 
+variable "ecs_task_execution_role" {
+  default = "ecsTaskExecutionRoleStrapi-let"
+}
+
+variable "aws_ecs_task_definition" {
+  default = "strapi-task"
+}
+
+variable "strapi_service" {
+  default = "strapi-service"
+}
+
+variable "security_group" {
+  default = "sg"
+}
