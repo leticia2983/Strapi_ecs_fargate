@@ -2,7 +2,7 @@
   "containerDefinitions": [
     {
       "name": "strapi-let",
-      "image": "strapi:latest",
+      "image": "533266978173.dkr.ecr.us-west-1.amazonaws.com/app_repo:latest",
       "cpu": 0,
       "portMappings": [
         {
