@@ -32,7 +32,7 @@ jobs:
 
       - name: Plan Terraform
         working-directory: terraform
-        run: terraform plan
+        run: terraform plan -out=tfplan
 
       - name: Apply Terraform
         if: github.ref == 'refs/heads/main'
