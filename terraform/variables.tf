@@ -7,7 +7,7 @@ variable "service_name" {
 }
 
 variable "ecs_task_execution_role" {
-  default = "ecsTaskExecutionRoleStrapi-let"
+  default = "ecsTaskExecutionRoleStrapi-let29"
 }
 
 variable "aws_ecs_task_definition" {
