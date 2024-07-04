@@ -1,17 +1,18 @@
 name: Deploy to Amazon ECS
+
 on:
   push:
     branches:
       - master
+
 env:
   AWS_REGION: us-west-1
   ECS_CLUSTER: app_cluster
   CONTAINER_NAME: app
   ECS_SERVICE: app_service
-  ECS_TD: .github/workflows/td.json
-  AWS_ACCESS_KEY_ID : secrets.AWS_ACCESS_KEY_ID
-  AWS_ACCESS_KEY : secrets.AWS_ACCESS_KEY
-
+  ECS_TD: .github/workflows/td.json  # Replace with actual path to task definition JSON
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 jobs:
   deploy:
@@ -25,9 +26,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "${{env.AWS_REGION}}"
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region: "${{ env.AWS_REGION }}"
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -36,7 +37,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          ECR_REGISTRY: "533266978173.dkr.ecr.us-west-1.amazonaws.com/app_repo"
+          ECR_REGISTRY: "533266978173.dkr.ecr.us-west-1.amazonaws.com"
           ECR_REPOSITORY: "app_repo"
           IMAGE_TAG: latest
         run: |
@@ -58,4 +59,4 @@ jobs:
           task-definition: ${{ steps.task-def-1.outputs.task-definition }}
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
-          wait-for-service-stability: true
+          wait-for-service-stability: false
