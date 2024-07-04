@@ -5,7 +5,9 @@ defaults:
 
   name: Terraform_automated
   on:
-    worflow_dispatch:
+    push:
+      branches:
+        - master
 
   jobs:
     terraform:
