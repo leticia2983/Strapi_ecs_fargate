@@ -1,9 +1,9 @@
-#name: Terraform deploy ec2 in ap-south-1 mumbai
-#on:
-#  push:
-#    branches:
-#      - master  # Trigger on push to the main branch, adjust as needed
-#
+name: Terraform deploy ec2 in ap-south-1 mumbai
+on:
+  push:
+    branches:
+      - master  # Trigger on push to the main branch, adjust as needed
+
 jobs:
   terraform:
     runs-on: ubuntu-latest
