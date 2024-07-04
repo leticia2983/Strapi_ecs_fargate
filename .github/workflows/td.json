@@ -1,5 +1,5 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:us-west-1:533266978173:task-definition/let-task:3",
+  "taskDefinitionArn": "arn:aws:ecs:us-west-1:533266978173:task-definition/let-task:8",
   "containerDefinitions": [
     {
       "name": "strapi-let",
@@ -33,7 +33,7 @@
   "family": "let-task",
   "executionRoleArn": "arn:aws:iam::533266978173:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 3,
+  "revision": 8,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
@@ -76,7 +76,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-07-04T05:04:52.380Z",
+  "registeredAt": "2024-07-04T08:54:33.825Z",
   "registeredBy": "arn:aws:iam::533266978173:user/leticia",
   "tags": []
 }
