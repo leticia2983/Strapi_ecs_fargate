@@ -1,13 +1,18 @@
+name: Terraform_automated
+on:
+  push:
+    branches:
+      - master
+
+
+
+
 defaults:
   run:
     working-directory: terraform
 
 
-  name: Terraform_automated
-  on:
-    push:
-      branches:
-        - master
+
 
   jobs:
     terraform:
