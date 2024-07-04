@@ -1,9 +1,8 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:us-west-1:533266978173:task-definition/let-task:8",
   "containerDefinitions": [
     {
       "name": "strapi-let",
-      "image": "533266978173.dkr.ecr.us-west-1.amazonaws.com/app_repo:latest",
+      "image": "strapi:latest",
       "cpu": 0,
       "portMappings": [
         {
@@ -16,8 +15,10 @@
       ],
       "essential": true,
       "environment": [],
+      "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
+      "ulimits": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -25,7 +26,8 @@
           "awslogs-create-group": "true",
           "awslogs-region": "us-west-1",
           "awslogs-stream-prefix": "ecs"
-        }
+        },
+        "secretOptions": []
       },
       "systemControls": []
     }
@@ -33,40 +35,7 @@
   "family": "let-task",
   "executionRoleArn": "arn:aws:iam::533266978173:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 8,
   "volumes": [],
-  "status": "ACTIVE",
-  "requiresAttributes": [
-    {
-      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-    },
-    {
-      "name": "ecs.capability.execution-role-awslogs"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-    },
-    {
-      "name": "ecs.capability.execution-role-ecr-pull"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-    },
-    {
-      "name": "ecs.capability.task-eni"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-    }
-  ],
-  "placementConstraints": [],
-  "compatibilities": [
-    "EC2",
-    "FARGATE"
-  ],
   "requiresCompatibilities": [
     "FARGATE"
   ],
@@ -75,8 +44,5 @@
   "runtimePlatform": {
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
-  },
-  "registeredAt": "2024-07-04T08:54:33.825Z",
-  "registeredBy": "arn:aws:iam::533266978173:user/leticia",
-  "tags": []
+  }
 }
