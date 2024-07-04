@@ -1,14 +1,14 @@
 name: Deploy to Amazon ECS
 
-#on:
-#  push:
-#    branches:
-#      - master
+on:
+  push:
+    branches:
+      - master
 
 env:
   AWS_REGION: us-west-1
   ECS_CLUSTER: app_cluster
-  CONTAINER_NAME: strapi-let
+  CONTAINER_NAME: strapi-letstrapi-let-80-tcp
   ECS_SERVICE: app_service
   ECS_TD: .github/workflows/td.json  # Replace with actual path to task definition JSON
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

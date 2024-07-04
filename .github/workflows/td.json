@@ -1,9 +1,9 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:us-west-1:533266978173:task-definition/let-task:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-west-1:533266978173:task-definition/let-task:3",
   "containerDefinitions": [
     {
       "name": "strapi-let",
-      "image": "strapi:latest",
+      "image": "533266978173.dkr.ecr.us-west-1.amazonaws.com/app_repo:latest",
       "cpu": 0,
       "portMappings": [
         {
@@ -16,10 +16,8 @@
       ],
       "essential": true,
       "environment": [],
-      "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
-      "ulimits": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -27,8 +25,7 @@
           "awslogs-create-group": "true",
           "awslogs-region": "us-west-1",
           "awslogs-stream-prefix": "ecs"
-        },
-        "secretOptions": []
+        }
       },
       "systemControls": []
     }
@@ -36,7 +33,7 @@
   "family": "let-task",
   "executionRoleArn": "arn:aws:iam::533266978173:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 1,
+  "revision": 3,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
@@ -47,7 +44,13 @@
       "name": "ecs.capability.execution-role-awslogs"
     },
     {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "ecs.capability.execution-role-ecr-pull"
     },
     {
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -73,8 +76,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-07-03T06:59:53.676Z",
+  "registeredAt": "2024-07-04T05:04:52.380Z",
   "registeredBy": "arn:aws:iam::533266978173:user/leticia",
   "tags": []
 }
-
