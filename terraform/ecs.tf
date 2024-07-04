@@ -53,7 +53,7 @@ resource "aws_ecs_task_definition" "td" {
   container_definitions = jsonencode([
     {
       name      = "strapi-db",
-      image     = "strapi:latest",
+      image     = "mysql 5.7",
       essential = true,
       environment = [
         {
@@ -78,7 +78,7 @@ resource "aws_ecs_task_definition" "td" {
     },
     {
       name      = "strapi-server",
-      image     = "leticia888444/strapi_docker_final:1.0",
+      image     = "533266978173.dkr.ecr.us-west-1.amazonaws.com/app_repo:latest",
       essential = true,
       dependsOn = [{
         containerName = "strapi-db",
