@@ -77,3 +77,4 @@ resource "aws_route_table_association" "route1" {
   subnet_id      = aws_subnet.sn1.id
 }
 
+}
