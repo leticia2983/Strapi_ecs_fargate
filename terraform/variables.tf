@@ -21,3 +21,6 @@ variable "strapi_service" {
 variable "security_group" {
   default = "sg"
 }
+variable "region" {
+  default = "us-west-1"
+}
