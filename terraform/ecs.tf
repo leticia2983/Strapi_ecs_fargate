@@ -53,7 +53,7 @@ resource "aws_ecs_task_definition" "td" {
   container_definitions = jsonencode([
     {
       name      = "strapi-db",
-      image     = "mysql 5.7",
+      image     = "mysql:5.7",
       essential = true,
       environment = [
         {
