@@ -21,23 +21,6 @@ resource "aws_ecs_service" "service" {
 }
 
 resource "aws_ecs_task_definition" "td" {
-  container_definitions = jsonencode([
-    {
-      name         = "app"
-      image        = "533266978173.dkr.ecr.us-west-1.amazonaws.com/app_repo"
-      cpu          = 256
-      memory       = 512
-      essential    = true
-      portMappings = [
-        {
-          containerPort = 80
-          hostPort      = 80
-        }
-      ]
-    }
-  ])
-  family                   = "app"
-  requires_compatibilities = ["FARGATE"]
 
   cpu                = "256"
   memory             = "512"
