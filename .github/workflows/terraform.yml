@@ -1,4 +1,4 @@
-name: Terraform deploy ec2 in ap-south-1 mumbai
+name: Terraform deploy ec2 in us-west-1 california
 on:
   push:
     branches:
