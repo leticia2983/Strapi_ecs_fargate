@@ -1,5 +1,5 @@
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name = "ecs_task_execution_role-strapi-let"
+  name = "ecs_task_execution_role-strapi-let1"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
