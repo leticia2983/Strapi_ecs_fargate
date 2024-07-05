@@ -25,3 +25,8 @@ variable "region" {
   default = "us-west-1"
 }
 
+variable "subnet_ids" {
+  description = "The subnet IDs to deploy into"
+  type        = list(string)
+}
+

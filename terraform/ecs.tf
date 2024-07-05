@@ -1,3 +1,11 @@
+variable "subnet_ids" {
+  type = list(string)
+}
+
+variable "security_group_ids" {
+  type = list(string)
+}
+
 resource "aws_ecs_cluster" "main" {
   name = var.cluster_name
 }
@@ -36,8 +44,8 @@ resource "aws_ecs_service" "strapi" {
   }
 
   network_configuration {
-    subnets         = [aws_subnet.sn1.id]
+    subnets         = var.subnet_ids
     assign_public_ip = true
-    security_groups = [aws_security_group.sg.id]
+    security_groups = var.security_group_ids
   }
 }
