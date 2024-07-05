@@ -3,5 +3,5 @@ output "ecs_cluster_id" {
 }
 
 output "ecs_service_name" {
-  value = aws_ecs_service.service.name
+  value = aws_ecs_service.strapi.name
 }
